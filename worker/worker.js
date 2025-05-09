@@ -2,7 +2,7 @@
 // - github.com/Vauth/duckgpt - //
 // ---------------------------- //
 
-const MODELS = ['gpt-4o-mini', 'claude-3-haiku-20240307', 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', 'mistralai/Mixtral-8x7B-Instruct-v0.1'];
+const MODELS = ['gpt-4o-mini', 'o3-mini', 'claude-3-haiku-20240307', 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', 'mistralai/Mixtral-8x7B-Instruct-v0.1'];
 const MAIN_MODEL = 'gpt-4o-mini'; 
 const STATUS_URL = 'https://duckduckgo.com/duckchat/v1/status';
 const CHAT_API = 'https://duckduckgo.com/duckchat/v1/chat';
@@ -61,7 +61,9 @@ async function Chat(prompt, history, model) {
     'TE': 'trailers'
   }
 
-  headers['x-vqd-4'] = await fetch(STATUS_URL, { headers: headers }).then(response => response.headers.get('x-vqd-4'));
+  const vdq = await fetch(STATUS_URL, { headers: headers });
+  headers['x-vqd-4'] = vdq.headers.get('x-vqd-4');
+  headers['x-vqd-hash-1'] = vdq.headers.get('x-vqd-hash-1');
   headers['Content-Type'] = 'application/json'; let message;
 
   try {message = JSON.parse(history).concat([{ role: 'user', content: prompt }])

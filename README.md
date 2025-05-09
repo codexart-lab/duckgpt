@@ -12,6 +12,7 @@
 
 ## 📂 Models
 - `gpt-4o-mini`
+- `o3-mini`
 - `claude-3-haiku-20240307`
 - `mistralai/Mixtral-8x7B-Instruct-v0.1`
 - `meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo`
@@ -31,7 +32,7 @@
 <br>
 
 ## 📡 Live Demo
-Check out the live demo [here](https://duck.gpt-api.workers.dev). ([API Endpoint](https://duck.gpt-api.workers.dev/chat/?prompt=hi&model=gpt-4o-mini))
+Check out the live demo [here](https://duckgpt.live). ([API Endpoint](https://duckgpt.live/chat/?prompt=hi))
 
 <br>
 
